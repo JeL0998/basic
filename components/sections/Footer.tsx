@@ -1,0 +1,1 @@
+export default function Footer(){return (<footer className='py-10 text-center text-sm text-white/70'><div className='space-y-1'><div>Contact: <a className='link-brand' href='mailto:ericjanlonario.jr@gmail.com'>ericjanlonario.jr@gmail.com</a> · <a className='link-brand' href='tel:+639940198656'>0994 019 8656</a></div><div>© JDev</div></div></footer>); }

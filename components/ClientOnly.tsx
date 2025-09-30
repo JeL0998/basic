@@ -1,0 +1,1 @@
+"use client"; import {useEffect,useState,PropsWithChildren} from "react"; export default function ClientOnly({children}:PropsWithChildren){const [r,setR]=useState(false);useEffect(()=>setR(true),[]);return r? <>{children}</>:null;}

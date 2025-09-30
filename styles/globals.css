@@ -1,0 +1,18 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+:root{ --brand: 14 165 233; --onbrand: 255 255 255; } /* sky */
+html.theme-emerald{ --brand: 16 185 129; --onbrand: 255 255 255;}
+html.theme-rose{ --brand: 244 63 94; --onbrand: 255 255 255;}
+html.theme-amber{ --brand: 245 158 11; --onbrand: 23 23 23;}
+html.theme-indigo{ --brand: 99 102 241; --onbrand: 255 255 255;}
+html,body{height:100%;} body{@apply antialiased bg-[#07111f] text-white;}
+a{@apply outline-none focus:ring-2 focus:ring-white/40 rounded;}
+.card{@apply bg-white/5 border border-white/10 rounded-2xl;}
+.btn-brand{ background: rgb(var(--brand)); color: rgb(var(--onbrand)); }
+.btn-brand{@apply inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium shadow-soft;}
+.link-brand{ color: rgb(var(--brand)); } .badge{@apply inline-flex items-center px-2 py-0.5 rounded-full text-xs border border-white/10 bg-white/5;}
+.fade-bottom{ background-image: linear-gradient(to top, rgba(0,0,0,.5), transparent); }
+.edge-mask{ mask-image:linear-gradient(to right, transparent, black 12%, black 88%, transparent); -webkit-mask-image:linear-gradient(to right, transparent, black 12%, black 88%, transparent); }
+:root{ --s0:clamp(1rem,.95rem + .3vw,1.125rem); --s1:clamp(1.5rem,1.2rem + 1.2vw,2.1rem); --s2:clamp(2.2rem,1.6rem + 2.6vw,3.3rem); }
+#snap{ scroll-behavior:smooth; overscroll-behavior-y:contain; -webkit-overflow-scrolling:touch; }
+@media (min-width:1024px){ #snap{ scrollbar-width:none; } #snap::-webkit-scrollbar{ display:none; } }
+@media (prefers-reduced-motion:reduce){ *{ animation-duration:.001ms!important; transition-duration:.001ms!important; scroll-behavior:auto!important } }

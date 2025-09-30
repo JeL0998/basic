@@ -1,0 +1,1 @@
+export default function SectionShell({id,children}:{id:string;children:React.ReactNode}){ return <section id={id} data-section className="min-h-dvh snap-start grid place-items-center px-4 sm:px-6 py-10">{children}</section>; }

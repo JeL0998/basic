@@ -1,0 +1,1 @@
+"use client"; import Image,{type ImageProps} from "next/image"; import {useState} from "react"; export default function SafeImage(p:ImageProps){const [err,setErr]=useState(false);return <Image {...p} src={err?"/placeholder.svg":p.src} onError={()=>setErr(true)} alt={p.alt||"image"} /> }

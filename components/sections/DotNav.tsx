@@ -1,0 +1,8 @@
+"use client";
+import {useEffect,useState} from "react";
+const SECTIONS=[{id:"hero",label:"Home"},{id:"features",label:"Features"},{id:"rooms",label:"Rooms"},{id:"testimonials",label:"Reviews"},{id:"faq",label:"FAQ"},{id:"location",label:"Location"},{id:"inquiry",label:"Contact"}];
+export default function DotNav(){ const [a,setA]=useState("hero");
+  useEffect(()=>{ const root=document.getElementById("snap")||undefined; const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting&&e.intersectionRatio>.55) setA((e.target as HTMLElement).id); }),{root:root as any,threshold:[.55]}); SECTIONS.forEach(s=>{const el=document.getElementById(s.id); if(el) io.observe(el)}); return ()=>io.disconnect(); },[]);
+  function to(id:string){ const root=(document.getElementById('snap') as HTMLElement)||document.documentElement; const el=document.getElementById(id); if(!el) return; const st=root.scrollTop,toP=(el as HTMLElement).offsetTop,d=toP-st,t0=performance.now(); const ease=(t:number)=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2; const step=(t:number)=>{ const n=Math.min(1,(t-t0)/700); root.scrollTop=st+d*ease(n); if(n<1) requestAnimationFrame(step)}; requestAnimationFrame(step); }
+  return (<aside className="hidden lg:block fixed right-4 inset-y-0 z-40 grid place-items-center pointer-events-none"><ul className="pointer-events-auto space-y-3">{SECTIONS.map(s=>(<li key={s.id}><button onClick={()=>to(s.id)} className={`w-3 h-3 rounded-full border transition-all ${a===s.id?'scale-125':'opacity-70'}`} title={s.label} style={{borderColor:'rgb(var(--brand))', background:a===s.id?'rgb(var(--brand))':'transparent'}}/></li>))}</ul></aside>);
+}
